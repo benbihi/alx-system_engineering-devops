@@ -6,3 +6,4 @@ exec { 'kill_killmenow_process':
   refreshonly => true,
   subscribe   => Service['killmenow_service'],
 }
+
