@@ -1,3 +1,5 @@
+#!/usr/bin/env ruby
+
 file { '/tmp/school':
   ensure  => 'file',
   content => 'I love Puppet',
