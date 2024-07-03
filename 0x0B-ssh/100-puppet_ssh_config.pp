@@ -2,10 +2,11 @@
 # puppet script
 
 file {
-	ensure  => present,
-	content => "
-	#ssh config file
-	host*
-	IdentityFile ~/.ssh/school
-	PasswordAuthentication no
+ensure  => present,
+content => "
+#ssh config file
+host*
+IdentityFile ~/.ssh/school
+PasswordAuthentication no
+"
 }
