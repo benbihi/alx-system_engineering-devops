@@ -2,5 +2,5 @@
 # login to web-01 server
 # your passphrase is betty
 eval $("ssh-agent")
-ssh-add ~/.ssh.school
-ssh ubuntu@54.157.168.190
+ssh-add ~/.ssh/school
+ssh ubuntu@54.162.229.91
