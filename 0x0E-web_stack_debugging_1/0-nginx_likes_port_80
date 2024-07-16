@@ -1,27 +1,7 @@
 #!/usr/bin/env bash
-# Install Nginx if not installed
-if ! command -v nginx &> /dev/null; then
-    sudo apt update
-    sudo apt install -y nginx
-fi
-
+# fix access
 # delete the configuration file
 rm /etc/nginx/sites-enabled/default
-
-# Ensure Nginx is configured to listen on port 80
-# ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
-NGINX_CONF="/etc/nginx/sites-available/default"
-if ! grep -q "listen 80 default_server;" "$NGINX_CONF"; then
-    sudo sed -i 's/listen 80 default_server;/listen 80 default_server;/' "$NGINX_CONF"
-fi
-
-# Start Nginx service if not running
-if ! sudo systemctl is-active --quiet nginx; then
-    sudo service nginx start
-else
-    sudo service nginx  restart
-fi
-
-# Ensure Nginx is enabled to start on boot
-sudo systemctl enable nginx
+ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+sudo service nginx  restart
 
