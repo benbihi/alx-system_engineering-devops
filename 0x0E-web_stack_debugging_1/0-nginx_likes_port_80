@@ -1,9 +1,8 @@
 #!/usr/bin/env bash
-# Install Nginx if not installed
-if ! command -v nginx &> /dev/null; then
-    sudo apt update
-    sudo apt install -y nginx
-fi
+# Reinstall Nginx if installed
+rm /etc/nginx/sites-enabled/default
+sudo apt update
+sudo apt install -y nginx
 
 # Ensure Nginx is configured to listen on port 80
 NGINX_CONF="/etc/nginx/sites-available/default"
